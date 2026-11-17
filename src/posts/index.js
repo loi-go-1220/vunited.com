@@ -26,7 +26,7 @@ function parse(raw, path) {
     date: meta.date || '',
     author: meta.author || 'VUnited Team',
     tags: (meta.tags || 'News').split(',').map((t) => t.trim()).filter(Boolean),
-    cover: meta.cover || "/images/welcome.jpg",
+    cover: meta.cover || "/images/hero.jpg",
     excerpt: meta.excerpt || '',
     body: match ? match[2] : raw,
   }

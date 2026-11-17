@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { formatDate } from '../posts/index.js'
+import { formatDate, readingTime } from '../posts/index.js'
 
 export default function PostCard({ post }) {
   return (
@@ -9,12 +9,12 @@ export default function PostCard({ post }) {
         <div className="card__body">
           <div className="meta">
             <span className="eyebrow">{post.tags[0]}</span>
-            <span>·</span>
-            <time dateTime={post.date}>{formatDate(post.date)}</time>
+            <span aria-hidden="true">·</span>
+            <span>{readingTime(post.body)} min read</span>
           </div>
           <h3 className="card__title">{post.title}</h3>
           <p className="card__excerpt">{post.excerpt}</p>
-          <span className="card__author">By {post.author}</span>
+          <time className="card__date" dateTime={post.date}>{formatDate(post.date)}</time>
         </div>
       </Link>
     </article>
